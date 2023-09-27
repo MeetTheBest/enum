@@ -1,0 +1,49 @@
+{
+  "name": "@fengjian/enum",
+  "version": "0.0.1",
+  "type": "module",
+  "author": "fengjian",
+  "description": "枚举工具 实用枚举定义",
+  "keywords": [
+    "enum",
+    "Enum",
+    "枚举定义",
+    "前端枚举工具",
+    "实用枚举定义"
+  ],
+  "files": [
+    "dist/"
+  ],
+  "main": "./dist/enum.umd.js",
+  "module": "./dist/enum.es.js",
+  "exports": {
+    ".": {
+      "import": "./dist/enum.es.js",
+      "require": "./dist/enum.umd.js"
+    }
+  },
+  "scripts": {
+    "dev": "vite",
+    "build": "rimraf -rf ./dist && tsc && vite build",
+    "preview": "vite preview"
+  },
+  "devDependencies": {
+    "@types/lodash-es": "^4.17.9",
+    "rimraf": "^5.0.1",
+    "typescript": "^5.0.2",
+    "vite": "^4.4.5",
+    "vite-plugin-dts": "^3.6.0"
+  },
+  "dependencies": {
+    "lodash-es": "^4.17.21"
+  },
+  "publishConfig": {
+    "registry": "https://registry.npmjs.org/"
+  },
+  "homepage": "https://github.com/MeetTheBest/enum",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/MeetTheBest/enum.git"
+  },
+  "license": "MIT"
+}

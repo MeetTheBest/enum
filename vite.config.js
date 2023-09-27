@@ -4,9 +4,7 @@ import dts from 'vite-plugin-dts'
 export default defineConfig({
     base: './',
     plugins: [
-        dts({
-            exclude: ['./demo']
-        })
+        dts()
     ],
     server: {
         open: true

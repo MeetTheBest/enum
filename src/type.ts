@@ -28,6 +28,7 @@ export interface IEnum {
 }
 
 export interface IConfig {
+    style?: 'snakeCase' | 'camelCase';
     useUpper?: boolean;
     separator?: string;
     labelFieldName?: string | string[];

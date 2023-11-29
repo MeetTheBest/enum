@@ -1,6 +1,6 @@
 # 前端枚举工具 | Enum
 
-一个简单的定义枚举用具，迫于以往这样定义的折磨。
+一个简单的定义枚举用具，迫于以往定义时的折磨。
 
 **之前**
 
@@ -58,7 +58,7 @@ const remoteValue = 1;
 const text = TYPE_ENUM[remoteValue];
 // 逻辑判断
 if (remoteValue === TYPE_ENUM.MALL)
-// 转为下拉数据
+// 转为下拉数据（与定义时顺序一致）
 const options = TYPE_ENUM.OPTIONS; // [{ key: 'MALL', label: '商场', value: 1, extData: { alias: '商圈' } }, { key: 'BUILDING', label: '写字楼', value: 2, extData: { alias: '写字楼群' } }];
 ```
 
@@ -129,7 +129,15 @@ TYPE_ENUM.OPTIONS; // [{ key: 'MALL', customLabel: '商场', customValue: 1, ext
 
 ![](https://gitee.com/meetthebest/picgoImages/raw/master/img/202311291643742.png)
 
+## 本地开发
+
+```shell
+npm install 
+npm run dev
+# 访问 http://127.0.0.1:5173/
+```
+
 ## 后续规划
 
-[ ] 支持不同的代码风格（目前是 upper snake case）
-[ ] 使用层面，暂时没有得到编辑器的友好提示
+- [x] 支持不同的代码风格（目前是 upper snake case）
+- [ ] 使用层面，暂时没有得到编辑器的友好提示

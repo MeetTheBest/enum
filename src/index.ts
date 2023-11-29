@@ -1,7 +1,8 @@
 import { TOption, IItem, IConfig, THandler, IEnum, TArrayOption, IObjectOption } from './type';
-import { omitBy, isNil, isObject, isArray, toUpper, toLower } from 'lodash-es';
+import { omitBy, isNil, isObject, isArray, snakeCase, camelCase, upperFirst, lowerFirst, toUpper, toLower } from 'lodash-es';
 
 let enumConfig: IConfig = {
+    style: 'snakeCase',
     useUpper: true,
     separator: '_',
     labelFieldName: ['LABEL', 'DESC'],
@@ -52,13 +53,23 @@ class Enum implements IEnum {
         });
     }
 
+    get options() {
+        return this.OPTIONS;
+    }
+
     public keys: string[] = [];
     public values: IItem['value'][] = [];
     public labels: IItem['label'][] = [];
 
     genKey(key: string) {
-        const { useUpper } = enumConfig;
-        return useUpper ? toUpper(key) : toLower(key)
+        const { useUpper, style } = enumConfig;
+        if (style === 'snakeCase') {
+            return useUpper ? toUpper(snakeCase(key)) : toLower(snakeCase(key))
+        }
+        if (style === 'camelCase') {
+            return useUpper ? upperFirst(camelCase(key)) : lowerFirst(camelCase(key));
+        }
+        return key;
     }
 
     setItem(

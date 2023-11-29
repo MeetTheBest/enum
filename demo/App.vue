@@ -3,9 +3,9 @@
 		<div class="left">
 			<a-form :model="formData">
 				<h3 class="mb-20">配置参数</h3>
-				<!-- <a-form-item label="书写风格">
-					<a-select v-model:value="formData.style" :options="[]" />
-				</a-form-item> -->
+				<a-form-item label="书写风格">
+					<a-select v-model:value="formData.style" :options="styleOptions" />
+				</a-form-item>
 				<a-form-item label="key定义大写" name="useUpper">
 					<a-checkbox v-model:checked="formData.useUpper" />
 				</a-form-item>
@@ -55,6 +55,11 @@ const defaultCode = `new Enum([
 
 const EXCLUDE_KEYS = ['handlers', 'immutableList'];
 
+const STYLE_ENUM = new Enum([
+	['UPPER_SNAKE_CASE', 'snakeCase', '蛇式'],
+	['UPPER_CAMEL_CASE', 'camelCase', '驼峰式'],
+]);
+
 const PLACEHOLDER = uuid();
 
 const cacheCode = localStorage.getItem(ENUM_LOCALSTORAGE_KEY) || defaultCode;
@@ -64,12 +69,14 @@ const code = ref(cacheCode);
 const result = ref('');
 
 const formData = reactive({
-	// style: '',
+	style: STYLE_ENUM.UPPER_SNAKE_CASE,
 	useUpper: true,
 	labelFieldName: ['LABEL', 'DESC'],
 	optionLabelFieldName: 'label',
 	optionValueFieldName: 'value',
 });
+
+const styleOptions = ref(STYLE_ENUM.OPTIONS);
 
 const extensions = [javascript()];
 
@@ -88,10 +95,8 @@ const onProgressData = (obj, o = {}) => {
 		}
 	}
 
-	if (obj.OPTIONS) {
-		o.OPTIONS = obj.OPTIONS;
-	}
-
+	o.OPTIONS = obj.OPTIONS;
+	o.options = obj.options;
 	return o;
 };
 

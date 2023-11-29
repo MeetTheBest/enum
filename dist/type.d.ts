@@ -20,6 +20,7 @@ export interface IEnum {
     [x: string]: any;
 }
 export interface IConfig {
+    style?: 'snakeCase' | 'camelCase';
     useUpper?: boolean;
     separator?: string;
     labelFieldName?: string | string[];

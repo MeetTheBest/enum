@@ -8,6 +8,7 @@ declare class Enum implements IEnum {
     get separator(): string | undefined;
     get labelFieldNames(): (string | undefined)[];
     get OPTIONS(): IItem[];
+    get options(): IItem[];
     keys: string[];
     values: IItem['value'][];
     labels: IItem['label'][];

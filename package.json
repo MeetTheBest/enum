@@ -1,6 +1,6 @@
 {
   "name": "simplenum",
-  "version": "0.0.2",
+  "version": "0.0.4",
   "type": "module",
   "author": "fengjian",
   "description": "枚举工具 实用枚举定义",

@@ -28,11 +28,21 @@
     "preview": "vite preview"
   },
   "devDependencies": {
+    "@codemirror/lang-javascript": "^6.2.1",
+    "@highlightjs/vue-plugin": "^2.1.0",
+    "@types/codemirror": "^5.60.15",
     "@types/lodash-es": "^4.17.9",
+    "@vitejs/plugin-vue": "^4.5.0",
+    "ant-design-vue": "^4.0.7",
+    "codemirror": "^6.0.1",
+    "highlight.js": "^11.9.0",
     "rimraf": "^5.0.1",
     "typescript": "^5.0.2",
+    "unplugin-vue-components": "^0.25.2",
     "vite": "^4.4.5",
-    "vite-plugin-dts": "^3.6.0"
+    "vite-plugin-dts": "^3.6.0",
+    "vue": "^3.3.9",
+    "vue-codemirror": "^6.1.1"
   },
   "dependencies": {
     "lodash-es": "^4.17.21"

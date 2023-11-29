@@ -26,3 +26,11 @@ export type THandler = [(v: any, ...args: any[]) => any, any[]];
 export interface IEnum {
     [x: string]: any;
 }
+
+export interface IConfig {
+    useUpper?: boolean;
+    separator?: string;
+    labelFieldName?: string | string[];
+    optionLabelFieldName: string;
+    optionValueFieldName: string;
+}
